@@ -26,6 +26,8 @@ jobs:
                   password: ${{ secrets.DOCKERHUB_TOKEN }}
             - name: Checkout
               uses: action/checkout@v2
+              with:
+                  repository: MinhazMinu/recipe-app-api
             - name: Test
               run: docker-compose run --rm app sh -c "python manage.py test"
             - name: Lint
