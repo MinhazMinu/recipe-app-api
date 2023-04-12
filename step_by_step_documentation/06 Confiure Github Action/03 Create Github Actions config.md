@@ -17,7 +17,7 @@ jobs:
         name: Test and test-lint
         # which os it will run inside docker container
         runs-on: ubuntu-20.04
-        # a job may need multiple step to complite
+        # a job may need multiple step to complete
         steps:
             - name: Login to Docker Hub
               uses: docker/login-action@v1
