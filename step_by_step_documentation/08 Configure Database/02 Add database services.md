@@ -1,3 +1,6 @@
+###### Add database services to docker-compose
+
+```yml
 version: "3.9"
 
 services:
@@ -12,18 +15,18 @@ services:
             - ./app:/app
         command: >
             sh -c "python manage.py runserver 0.0.0.0:8000"
+        # Set environment variable to use. These are same as db environment
         environment:
             - DB_HOST=db
             - DB_NAME=devdb
             - DB_USER=devuser
             - DB_PASSWORD=changeme
+        # this means App service f=depends on db service
         depends_on:
             - db
 
     db:
         image: postgres:13-alpine
-        ports:
-            - "5432:5432"
         volumes:
             - dev-db-data:/var/lib/postgresql/data
         environment:
@@ -33,3 +36,4 @@ services:
 
 volumes:
     dev-db-data:
+```
