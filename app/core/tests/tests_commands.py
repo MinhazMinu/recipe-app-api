@@ -1,10 +1,8 @@
-""" 
-Test custom Django management command to pause execution until database is available 
-"""
+""" Test custom Django management command to pause execution until database
+is available"""
 
 from unittest.mock import patch
 from psycopg2 import OperationalError as Psycopg2Error
-
 from django.core.management import call_command
 from django.db.utils import OperationalError
 from django.test import SimpleTestCase
