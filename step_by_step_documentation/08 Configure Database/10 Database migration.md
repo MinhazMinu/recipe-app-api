@@ -15,3 +15,6 @@ To Run migration
 ```sh
 python manage.py migrate
 ```
+
+* Now to check in github action. In check.yml file
+
