@@ -1,0 +1,1 @@
+###### Added command for wait_for_db

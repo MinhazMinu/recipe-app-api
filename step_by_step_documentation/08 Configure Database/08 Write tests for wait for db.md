@@ -30,7 +30,7 @@ class CommandTests(SimpleTestCase):
         """Test waiting for db when db is available"""
         patched_check.return_value = True
         call_command("wait_for_db")
-        patched_check.assert_called_once_with(database=["default"])
+        patched_check.assert_called_once_with(databases=["default"])
 
     @patch("time.sleep")
     def test_wait_for_db_delay(self, patched_sleep, patched_check):
@@ -41,7 +41,7 @@ class CommandTests(SimpleTestCase):
 
         call_command("wait_for_db")
         self.assertEqual(patched_check.call_count, 6)
-        patched_check.assert_called_with(database=["default"])
+        patched_check.assert_called_with(databases=["default"])
 ```
 
 -   And in wait_for_db.py
@@ -61,7 +61,7 @@ class Command(BaseCommand):
         pass
 ```
 
-we do not implemented thsi command yet. so if we run
+we do not implemented this command yet. so if we run
 
 ```sh
 docker-compose run --rm app sh -c "python manage.py test"
