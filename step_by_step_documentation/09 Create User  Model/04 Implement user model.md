@@ -1,3 +1,6 @@
+###### Implement user model
+
+```py
 """
 Database Models.
 """
@@ -9,10 +12,11 @@ from django.contrib.auth.models import (
     PermissionsMixin,
 )
 
-
+# manage for user model
 class UserManager(BaseUserManager):
     """manager for users."""
 
+    # method for create a user
     def create_user(self, email, password=None, **extra_fields):
         """Create and save and return a  new user."""
         if not email:
@@ -23,7 +27,7 @@ class UserManager(BaseUserManager):
 
         return user
 
-
+# User model
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
@@ -36,3 +40,29 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+```
+
+-   In settings.py we add
+
+```py
+AUTH_USER_MODEL = "core.User"
+```
+
+-   Now create a migration file
+
+```sh
+docker-compose run --rm app sh -c "python manage.py makemigrations"
+```
+
+-   now we need to do a fresh migration
+
+    -   docker-compose down
+    -   docker volume ls
+    -   docker volume rm name_of_the_volume
+    -   docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py migrate"
+
+-   Now we can chekck out test
+
+```sh
+docker-compose run --rm app sh -c "python manage.py test"
+```
