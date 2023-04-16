@@ -1,6 +1,6 @@
 ###### Require email input
 
--   As usel lets first create the tests for this
+-   lets first create the tests for this
 -   in test_models.py create a new method test_new_user_without_email_raise_error()
 
 ```py
