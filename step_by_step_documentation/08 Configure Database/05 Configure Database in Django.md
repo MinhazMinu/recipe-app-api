@@ -12,6 +12,10 @@ DATABASES = {
         "NAME": os.environ.get("DB_NAME"),
         "USER": os.environ.get("DB_USER"),
         "PASSWORD": os.environ.get("DB_PASSWORD"),
+
+        # this have to be same as environment variable set in docker-compose.yml file
     }
 }
 ```
+
+-   now we can remove sqllite3 database from out project file

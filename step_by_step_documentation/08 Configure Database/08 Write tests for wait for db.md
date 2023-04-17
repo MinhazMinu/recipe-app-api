@@ -4,6 +4,7 @@
 
     -   app\core\management\commands\wait_for_db.py
     -   inside commands directory create \_\_init\_\_.py
+    -   inside management directory create \_\_init\_\_.py
     -   app\core\tests\tests_commands.py
     -   inside tests directory create \_\_init\_\_.py
 
@@ -43,6 +44,14 @@ class CommandTests(SimpleTestCase):
         self.assertEqual(patched_check.call_count, 6)
         patched_check.assert_called_with(databases=["default"])
 ```
+
+> This code defines a unit test to test a custom Django management command called wait_for_db. This command is intended to pause execution until the database is available for connection. The unit test uses the SimpleTestCase class from Django's testing framework.
+
+> The @patch decorator is used to mock the check method of the wait_for_db command. The patched_check argument in the test_wait_for_db_ready and test_wait_for_db_delay methods represents the mocked version of the check method.
+
+> In the test_wait_for_db_ready method, the patched_check method is mocked to return True, indicating that the database is available. Then, the call_command function is called to execute the wait_for_db command. Finally, the assert_called_once_with method is used to check that the check method was called once with the databases parameter set to ["default"].
+
+> In the test_wait_for_db_delay method, the patched_check method is mocked to raise an OperationalError exception on the first two calls, then raise a Psycopg2Error exception on the next three calls, and finally return True on the sixth call. This simulates a delay in connecting to the database. The patched_sleep argument is used to mock the time.sleep function, which is called between retries. Again, the call_command function is used to execute the wait_for_db command. Finally, the assert_called_with method is used to check that the check method was called six times with the databases parameter set to ["default"]. Additionally, the assertEqual method is used to check that the call_count attribute of patched_check is equal to 6.
 
 -   And in wait_for_db.py
 

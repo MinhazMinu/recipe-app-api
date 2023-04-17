@@ -31,7 +31,7 @@ if we run this now using
 docker-compose run --rm app sh -c "python manage.py test"
 ```
 
-we will dee on error in test cases
+we will see an error in test cases
 
 -   Now add functionality in calc.py to pass the test
 

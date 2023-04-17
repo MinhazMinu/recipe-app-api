@@ -19,6 +19,7 @@ RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
     # this is the client package for postgres
     apk add --update --no-cache postgresql-client && \
+    # Here we add --virtual because this are only build dependency, which will be removed
     apk add --update --no-cache --virtual .tmp-build-deps \
         build-base postgresql-dev musl-dev && \
     /py/bin/pip install -r /tmp/requirements.txt && \
@@ -26,6 +27,7 @@ RUN python -m venv /py && \
         then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
     fi && \
     rm -rf /tmp && \
+    # remove build dependency
     apk del .tmp-build-deps && \
     adduser  \
         --disabled-password \

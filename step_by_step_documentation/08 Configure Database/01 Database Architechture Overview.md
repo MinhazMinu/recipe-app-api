@@ -39,7 +39,7 @@ A[Docker Compose] -->C(App<br><small>django</small>)
 *   Volumes
 
     -   its how use _persistent data_ on docker compose
-    -   This allow us to Maps _directory8_ inside the container to _local machine_
+    -   This allow us to Maps _directory_ inside the container to _local machine_
 
     ```yml
     db:

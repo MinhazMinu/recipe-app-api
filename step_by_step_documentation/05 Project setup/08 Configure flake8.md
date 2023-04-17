@@ -1,6 +1,9 @@
 ###### Configure flake8.md
 
 -   create a requirements.dev.txt file in root directory
+```
+flake8>=3.9.2,<3.10
+```
 -   add below code to docker-compose.yml file
 
 ```docker
