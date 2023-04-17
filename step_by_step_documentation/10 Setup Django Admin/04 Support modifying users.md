@@ -1,3 +1,19 @@
+###### Support modifying users
+
+-   in test_admin.py we can add
+
+```py
+def test_edit_user_page(self):
+        """Test that the user edit page works"""
+        url = reverse("admin:core_user_change", args=[self.user.id])
+        res = self.client.get(url)
+
+        self.assertEqual(res.status_code, 200)
+```
+
+-   in admin.py files
+
+```py
 """Django admin customizations for the core app."""
 
 from django.contrib import admin
@@ -26,3 +42,4 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(models.User, UserAdmin)
+```
