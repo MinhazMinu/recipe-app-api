@@ -20,7 +20,10 @@ class UserAdmin(BaseUserAdmin):
     )
     #  add from admin page
     add_fieldsets = (
-        (None, {"classes": ("wide",), "fields": ("email", "password1", "password2")}),
+        (
+            None,
+            {"classes": ("wide",), "fields": ("email", "password1", "password2")},
+        ),  # noqa
     )
 
     readonly_fields = ["last_login"]
