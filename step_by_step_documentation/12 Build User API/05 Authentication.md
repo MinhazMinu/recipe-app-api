@@ -24,15 +24,17 @@ A[Create token<br>Post username/password ] -->B[Store token<br>On client]
     B --> C[Include token in<br> HTTP headers]
 ```
 
-* Pros and Cons
-    * Pros Support Out of the box
-    * Simple to use
-    * Supported by all clients
-    * Avoid sending username/password each time
-* Cons
-    * Token needs to be secured in client side
-    * Requires database request
+-   Pros and Cons
+    -   Pros Support Out of the box
+    -   Simple to use
+    -   Supported by all clients
+    -   Avoid sending username/password each time
+-   Cons
 
-* Logout
-    * Logout simply depend on client side
+    -   Token needs to be secured in client side
+    -   Requires database request
 
+-   Logout
+    -   Logout simply depend on client side
+    -   Delete token from client side
+    -   Not used in API

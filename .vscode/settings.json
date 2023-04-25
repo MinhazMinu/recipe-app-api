@@ -1,3 +1,7 @@
 {
-    "cSpell.words": ["psycopg", "runserver"]
+    "cSpell.words": ["psycopg", "runserver"],
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.formatting.provider": "none"
 }
