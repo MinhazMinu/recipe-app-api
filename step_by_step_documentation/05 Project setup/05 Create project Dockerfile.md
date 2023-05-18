@@ -3,6 +3,7 @@
 -   create a Docker file inside root directory.
 
 ```docker
+# Here Python is the name of the image & 3.9-alpine3.13 is the tag
 FROM python:3.9-alpine3.13
 LABEL maintainer="Minhaz:minhaz.taher@gmail.com"
 
@@ -10,8 +11,11 @@ LABEL maintainer="Minhaz:minhaz.taher@gmail.com"
 ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt /tmp/requirements.txt
+# this copy ./app directory to /app directory inside docker image
 COPY ./app /app
+# set working directory
 WORKDIR /app
+# container port
 EXPOSE 8000
 
 RUN python -m venv /py && \
@@ -22,7 +26,7 @@ RUN python -m venv /py && \
         --disabled-password \
         --no-create-home \
         django-user
-
+# set environment variable for python path
 ENV PATH="/py/bin:$PATH"
 
 USER django-user

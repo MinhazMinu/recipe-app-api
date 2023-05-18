@@ -14,7 +14,23 @@ def test_create_user_page(self):
 -   in admin.py file
 
 ```py
-add_fieldsets = (
-        (None, {"classes": ("wide",), "fields": ("email", "password1", "password2")}),
+#  add from admin page
+    add_fieldsets = (
+        (
+            None,
+            {
+                "classes": ("wide",),
+                "fields": (
+                    "email",
+                    "password1",
+                    "password2",
+                    "name",
+                    "is_active",
+                    "is_staff",
+                    "is_superuser",
+                ),
+            },  # noqa
+        ),  # noqa
     )
+
 ```

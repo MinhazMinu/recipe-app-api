@@ -3,7 +3,7 @@
 -   In root directory create a docker-compose.yml file
 
 ```yml
-# version of docker compose syntext
+# version of docker compose syntax
 version: "3.9"
 
 #services that are need for the application
@@ -28,6 +28,20 @@ services:
 
 -   run docker compose build command
 
-```
+```sh
 docker-compose build
 ```
+
+Dockerfile VS docker-compose.yml
+
+-   Dockerfile is used to build a docker image
+-   docker-compose.yml is used to build a docker container
+
+> The key difference between the Dockerfile and docker-compose is that the Dockerfile describes how to build Docker images, while docker-compose is used to run Docker containers.
+
+> The contents of a Dockerfile describe how to create and build a Docker image, while docker-compose is a command that runs Docker containers based on settings described in a docker-compose.yaml file.
+
+docker image vs docker container
+
+-   Docker image is a template that contains the instructions for creating a Docker container.
+-   Docker container is a running instance of a Docker image.
