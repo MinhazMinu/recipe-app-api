@@ -72,7 +72,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 ```
 
-3. ekahane auto user vreate hocchek ivabe.. kew to setUp method re call kore nai keno? reverse() method kissu buji nai;
+3. ekahane auto user create hocce kivabe.. kew to setUp method re call kore nai? reverse() method kissu buji nai;
 
 ```py
 """ Test for django admin modification"""
